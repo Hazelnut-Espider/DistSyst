@@ -1,0 +1,72 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.caihts.temperaturecontrol";
+option java_outer_classname = "TemperatureControlServiceImpl";
+
+package temperaturecontrol;
+
+// Interface exported by the server.
+service TemperatureControlService { //service name will be used to shows the Server Streaming example.
+  
+  //Unary, request and response  THIS PART WON'T BE USED  FOR THIS EXAMPLE
+  rpc reverse(TemperatureControlRequest) returns (TemperatureControlResponse) {} 
+
+  rpc empty(Message) returns (Empty) {} //also unary but just in case a client call a empty request ALSO THIS PART WON'T BE USED FOR THIS EXAMPLE
+	
+  //bi directional streaming where there is a constant exchange of information THIS PART WON'T BE USED  FOR THIS EXAMPLE
+  rpc reverseStream(stream TemperatureControlRequest) returns (stream TemperatureControlResponse) {} 
+  
+  /* 
+  	TO THIS PART OF THE PROTO WILL BE USED IN THIS CA (INTELLIGENT HOUSE TECH SERVICE) TO SHOWS HOW THE CLIENT STREAM IS WORKING FOR 
+  */
+  //client streaming, client streams many requests and get one response 
+  rpc length(stream TemperatureControlRequest) returns (LengthResponse); 
+  /* 
+  	TO THIS PART OF THE PROTO WILL BE USED IN THIS CA (INTELLIGENT HOUSE TECH SERVICE) TO SHOWS HOW THE SERVER STREAM IS WORKING FOR 
+  */
+  //server stream, client request and server streams many responses...
+  rpc split(TemperatureControlRequest) returns (stream TemperatureControlResponse); 
+  
+}
+
+//this would be like the cunstroctors in java where we must make an esquema of what would be our possible inputs
+message LengthResponse { //for length we expect an integer since it will pass a length  of something
+  int32 length = 1;
+}
+
+message ReplaceRequest { //I don't know what is it
+  string text = 1;
+  string char = 2; 
+}
+
+message TemperatureControlRequest { //every time we call a StringRequest we pass in a String value
+  string val = 1;
+}
+
+message MultiTemperatureControlRequest { //this would create an array of Strings when we are streaming, making possible to send more than one String per time
+  repeated string text = 1;
+}
+
+message MultiMessageRequest { //creates an array of StringRequest making possible streaming and sending multiples StringRequests
+  repeated TemperatureControlRequest multirequest = 1;
+}
+
+message TemperatureControlResponse { //String responses will be sent back as a String value
+  string val = 1;
+}
+
+
+message Message { //DON'T KNOW HOW IT WORKS VERY WELL
+	enum Enum {
+        UNKNOWN = 0;
+        LOW = 1;
+        HIGH = 2;       
+    }
+    
+    Enum detail = 1;   
+}
+
+message Empty { //When there is no value being passed by the client
+
+}//@Elder Costa Cavalcanti x20110944 CA DS (Intelligent Home Tech Service)
