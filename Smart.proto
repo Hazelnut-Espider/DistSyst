@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.caihts.lightcontrol";
+option java_outer_classname = "LightControlServiceImpl";
+
+
+
+package lightcontrol;
+
+	//This is an Unary example when one message is passed and one message is returned as response.
+
+	//the light control service definition..
+service LightControl{
+	//it sends a light control greeting
+rpc SayLightControl(LightControlRequest) returns (LightControlReply){} 
+}
+	// The request message contains the user's name.
+message LightControlRequest{
+	string name = 1;
+}
+	//The responde message contains the light control greetings
+message LightControlReply {
+	string message = 1;
+}
+
+//@Elder Costa Cavalcanti x20110944 CA DS (Intelligent Home Tech Service)
