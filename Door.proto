@@ -1,0 +1,67 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "grpc.caihts.doorcontrol";
+option java_outer_classname = "DoorControlServiceImpl";
+
+package doorcontrol;
+
+// Interface exported by the server.
+service DoorControlService { //service name
+  
+  //Unary, request and response - FOR THIS EXAMPLE, THIS PART OF THE CODE WON'T BE USED 
+  rpc reverse(DoorControlRequest) returns (DoorControlResponse) {} 
+
+  rpc empty(Message) returns (Empty) {} //also unary but just in case a client call a empty request - FOR THIS EXAMPLE, THIS PART OF THE CODE WON'T BE USED 
+	
+  //bi directional streaming where there is a constant exchange of information
+  rpc reverseStream(stream DoorControlRequest) returns (stream DoorControlResponse) {} 
+  
+  //client streaming, client streams many requests and get one response - FOR THIS EXAMPLE, THIS PART OF THE CODE WON'T BE USED 
+  rpc length(stream DoorControlRequest) returns (LengthResponse); 
+  
+  //server stream, client request and server streams many responses... - FOR THIS EXAMPLE, THIS PART OF THE CODE WON'T BE USED 
+  rpc split(DoorControlRequest) returns (stream DoorControlResponse); 
+  
+}
+
+//this would be like the cunstroctors in java where we must make an esquema of what would be our possible inputs
+message LengthResponse { //for length we expect an integer since it will pass a length  of something
+  int32 length = 1;
+}
+
+message ReplaceRequest { // I DUNNO WHAT IS THIS YET
+  string text = 1;
+  string char = 2; 
+}
+
+message DoorControlRequest { //every time we call a StringRequest we pass in a String value
+  string val = 1;
+}
+
+message MultiDoorControlRequest { //this would create an array of Strings when we are streaming, making possible to send more than one String per time
+  repeated string text = 1; // THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+}
+
+message MultiMessageRequest { //creates an array of StringRequest making possible streaming and sending multiples StringRequests
+  repeated DoorControlRequest multirequest = 1; // THIS IS THE RESPONSE OF A BIDIRECTION STREAM  
+}
+
+message DoorControlResponse { //String responses will be sent back as a String value
+  string val = 1;
+}
+
+
+message Message { // I LITTLE BIT CONFUSE ABOUT THIS PART OF THE CODE
+	enum Enum {
+        UNKNOWN = 0;
+        LOW = 1;
+        HIGH = 2;       
+    }
+    
+    Enum detail = 1;   
+}
+
+message Empty { //When there is no value being passed by the client
+
+} /** @Elder Costa Cavalcanti x20110944 CA DS (Intelligent Home Tech Service)**/

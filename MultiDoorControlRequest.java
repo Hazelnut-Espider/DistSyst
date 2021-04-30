@@ -5,23 +5,22 @@ package grpc.caihts.doorcontrol;
 
 /**
  * <pre>
- * I DUNNO WHAT IS THIS YET
+ *this would create an array of Strings when we are streaming, making possible to send more than one String per time
  * </pre>
  *
- * Protobuf type {@code doorcontrol.ReplaceRequest}
+ * Protobuf type {@code doorcontrol.MultiDoorControlRequest}
  */
-public  final class ReplaceRequest extends
+public  final class MultiDoorControlRequest extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:doorcontrol.ReplaceRequest)
-    ReplaceRequestOrBuilder {
+    // @@protoc_insertion_point(message_implements:doorcontrol.MultiDoorControlRequest)
+    MultiDoorControlRequestOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use ReplaceRequest.newBuilder() to construct.
-  private ReplaceRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use MultiDoorControlRequest.newBuilder() to construct.
+  private MultiDoorControlRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private ReplaceRequest() {
-    text_ = "";
-    char_ = "";
+  private MultiDoorControlRequest() {
+    text_ = com.google.protobuf.LazyStringArrayList.EMPTY;
   }
 
   @java.lang.Override
@@ -29,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private ReplaceRequest(
+  private MultiDoorControlRequest(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -50,14 +49,11 @@ private static final long serialVersionUID = 0L;
             break;
           case 10: {
             java.lang.String s = input.readStringRequireUtf8();
-
-            text_ = s;
-            break;
-          }
-          case 18: {
-            java.lang.String s = input.readStringRequireUtf8();
-
-            char_ = s;
+            if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+              text_ = new com.google.protobuf.LazyStringArrayList();
+              mutable_bitField0_ |= 0x00000001;
+            }
+            text_.add(s);
             break;
           }
           default: {
@@ -75,89 +71,69 @@ private static final long serialVersionUID = 0L;
       throw new com.google.protobuf.InvalidProtocolBufferException(
           e).setUnfinishedMessage(this);
     } finally {
+      if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+        text_ = text_.getUnmodifiableView();
+      }
       this.unknownFields = unknownFields.build();
       makeExtensionsImmutable();
     }
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_ReplaceRequest_descriptor;
+    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_MultiDoorControlRequest_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_ReplaceRequest_fieldAccessorTable
+    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_MultiDoorControlRequest_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            grpc.caihts.doorcontrol.ReplaceRequest.class, grpc.caihts.doorcontrol.ReplaceRequest.Builder.class);
+            grpc.caihts.doorcontrol.MultiDoorControlRequest.class, grpc.caihts.doorcontrol.MultiDoorControlRequest.Builder.class);
   }
 
   public static final int TEXT_FIELD_NUMBER = 1;
-  private volatile java.lang.Object text_;
+  private com.google.protobuf.LazyStringList text_;
   /**
-   * <code>string text = 1;</code>
+   * <pre>
+   * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+   * </pre>
+   *
+   * <code>repeated string text = 1;</code>
    */
-  public java.lang.String getText() {
-    java.lang.Object ref = text_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      text_ = s;
-      return s;
-    }
+  public com.google.protobuf.ProtocolStringList
+      getTextList() {
+    return text_;
   }
   /**
-   * <code>string text = 1;</code>
+   * <pre>
+   * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+   * </pre>
+   *
+   * <code>repeated string text = 1;</code>
+   */
+  public int getTextCount() {
+    return text_.size();
+  }
+  /**
+   * <pre>
+   * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+   * </pre>
+   *
+   * <code>repeated string text = 1;</code>
+   */
+  public java.lang.String getText(int index) {
+    return text_.get(index);
+  }
+  /**
+   * <pre>
+   * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+   * </pre>
+   *
+   * <code>repeated string text = 1;</code>
    */
   public com.google.protobuf.ByteString
-      getTextBytes() {
-    java.lang.Object ref = text_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      text_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
-  }
-
-  public static final int CHAR_FIELD_NUMBER = 2;
-  private volatile java.lang.Object char_;
-  /**
-   * <code>string char = 2;</code>
-   */
-  public java.lang.String getChar() {
-    java.lang.Object ref = char_;
-    if (ref instanceof java.lang.String) {
-      return (java.lang.String) ref;
-    } else {
-      com.google.protobuf.ByteString bs = 
-          (com.google.protobuf.ByteString) ref;
-      java.lang.String s = bs.toStringUtf8();
-      char_ = s;
-      return s;
-    }
-  }
-  /**
-   * <code>string char = 2;</code>
-   */
-  public com.google.protobuf.ByteString
-      getCharBytes() {
-    java.lang.Object ref = char_;
-    if (ref instanceof java.lang.String) {
-      com.google.protobuf.ByteString b = 
-          com.google.protobuf.ByteString.copyFromUtf8(
-              (java.lang.String) ref);
-      char_ = b;
-      return b;
-    } else {
-      return (com.google.protobuf.ByteString) ref;
-    }
+      getTextBytes(int index) {
+    return text_.getByteString(index);
   }
 
   private byte memoizedIsInitialized = -1;
@@ -174,11 +150,8 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
-    if (!getTextBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_);
-    }
-    if (!getCharBytes().isEmpty()) {
-      com.google.protobuf.GeneratedMessageV3.writeString(output, 2, char_);
+    for (int i = 0; i < text_.size(); i++) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, text_.getRaw(i));
     }
     unknownFields.writeTo(output);
   }
@@ -189,11 +162,13 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
-    if (!getTextBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, text_);
-    }
-    if (!getCharBytes().isEmpty()) {
-      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, char_);
+    {
+      int dataSize = 0;
+      for (int i = 0; i < text_.size(); i++) {
+        dataSize += computeStringSizeNoTag(text_.getRaw(i));
+      }
+      size += dataSize;
+      size += 1 * getTextList().size();
     }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
@@ -205,16 +180,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof grpc.caihts.doorcontrol.ReplaceRequest)) {
+    if (!(obj instanceof grpc.caihts.doorcontrol.MultiDoorControlRequest)) {
       return super.equals(obj);
     }
-    grpc.caihts.doorcontrol.ReplaceRequest other = (grpc.caihts.doorcontrol.ReplaceRequest) obj;
+    grpc.caihts.doorcontrol.MultiDoorControlRequest other = (grpc.caihts.doorcontrol.MultiDoorControlRequest) obj;
 
     boolean result = true;
-    result = result && getText()
-        .equals(other.getText());
-    result = result && getChar()
-        .equals(other.getChar());
+    result = result && getTextList()
+        .equals(other.getTextList());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -226,78 +199,78 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
-    hash = (37 * hash) + TEXT_FIELD_NUMBER;
-    hash = (53 * hash) + getText().hashCode();
-    hash = (37 * hash) + CHAR_FIELD_NUMBER;
-    hash = (53 * hash) + getChar().hashCode();
+    if (getTextCount() > 0) {
+      hash = (37 * hash) + TEXT_FIELD_NUMBER;
+      hash = (53 * hash) + getTextList().hashCode();
+    }
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(byte[] data)
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(java.io.InputStream input)
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseDelimitedFrom(java.io.InputStream input)
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseDelimitedFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.caihts.doorcontrol.ReplaceRequest parseFrom(
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -310,7 +283,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(grpc.caihts.doorcontrol.ReplaceRequest prototype) {
+  public static Builder newBuilder(grpc.caihts.doorcontrol.MultiDoorControlRequest prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -327,29 +300,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   * I DUNNO WHAT IS THIS YET
+   *this would create an array of Strings when we are streaming, making possible to send more than one String per time
    * </pre>
    *
-   * Protobuf type {@code doorcontrol.ReplaceRequest}
+   * Protobuf type {@code doorcontrol.MultiDoorControlRequest}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:doorcontrol.ReplaceRequest)
-      grpc.caihts.doorcontrol.ReplaceRequestOrBuilder {
+      // @@protoc_insertion_point(builder_implements:doorcontrol.MultiDoorControlRequest)
+      grpc.caihts.doorcontrol.MultiDoorControlRequestOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_ReplaceRequest_descriptor;
+      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_MultiDoorControlRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_ReplaceRequest_fieldAccessorTable
+      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_MultiDoorControlRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.caihts.doorcontrol.ReplaceRequest.class, grpc.caihts.doorcontrol.ReplaceRequest.Builder.class);
+              grpc.caihts.doorcontrol.MultiDoorControlRequest.class, grpc.caihts.doorcontrol.MultiDoorControlRequest.Builder.class);
     }
 
-    // Construct using grpc.caihts.doorcontrol.ReplaceRequest.newBuilder()
+    // Construct using grpc.caihts.doorcontrol.MultiDoorControlRequest.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -367,27 +340,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
-      text_ = "";
-
-      char_ = "";
-
+      text_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_ReplaceRequest_descriptor;
+      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_MultiDoorControlRequest_descriptor;
     }
 
     @java.lang.Override
-    public grpc.caihts.doorcontrol.ReplaceRequest getDefaultInstanceForType() {
-      return grpc.caihts.doorcontrol.ReplaceRequest.getDefaultInstance();
+    public grpc.caihts.doorcontrol.MultiDoorControlRequest getDefaultInstanceForType() {
+      return grpc.caihts.doorcontrol.MultiDoorControlRequest.getDefaultInstance();
     }
 
     @java.lang.Override
-    public grpc.caihts.doorcontrol.ReplaceRequest build() {
-      grpc.caihts.doorcontrol.ReplaceRequest result = buildPartial();
+    public grpc.caihts.doorcontrol.MultiDoorControlRequest build() {
+      grpc.caihts.doorcontrol.MultiDoorControlRequest result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -395,10 +366,14 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public grpc.caihts.doorcontrol.ReplaceRequest buildPartial() {
-      grpc.caihts.doorcontrol.ReplaceRequest result = new grpc.caihts.doorcontrol.ReplaceRequest(this);
+    public grpc.caihts.doorcontrol.MultiDoorControlRequest buildPartial() {
+      grpc.caihts.doorcontrol.MultiDoorControlRequest result = new grpc.caihts.doorcontrol.MultiDoorControlRequest(this);
+      int from_bitField0_ = bitField0_;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        text_ = text_.getUnmodifiableView();
+        bitField0_ = (bitField0_ & ~0x00000001);
+      }
       result.text_ = text_;
-      result.char_ = char_;
       onBuilt();
       return result;
     }
@@ -437,22 +412,24 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof grpc.caihts.doorcontrol.ReplaceRequest) {
-        return mergeFrom((grpc.caihts.doorcontrol.ReplaceRequest)other);
+      if (other instanceof grpc.caihts.doorcontrol.MultiDoorControlRequest) {
+        return mergeFrom((grpc.caihts.doorcontrol.MultiDoorControlRequest)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(grpc.caihts.doorcontrol.ReplaceRequest other) {
-      if (other == grpc.caihts.doorcontrol.ReplaceRequest.getDefaultInstance()) return this;
-      if (!other.getText().isEmpty()) {
-        text_ = other.text_;
-        onChanged();
-      }
-      if (!other.getChar().isEmpty()) {
-        char_ = other.char_;
+    public Builder mergeFrom(grpc.caihts.doorcontrol.MultiDoorControlRequest other) {
+      if (other == grpc.caihts.doorcontrol.MultiDoorControlRequest.getDefaultInstance()) return this;
+      if (!other.text_.isEmpty()) {
+        if (text_.isEmpty()) {
+          text_ = other.text_;
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          ensureTextIsMutable();
+          text_.addAll(other.text_);
+        }
         onChanged();
       }
       this.mergeUnknownFields(other.unknownFields);
@@ -470,11 +447,11 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      grpc.caihts.doorcontrol.ReplaceRequest parsedMessage = null;
+      grpc.caihts.doorcontrol.MultiDoorControlRequest parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (grpc.caihts.doorcontrol.ReplaceRequest) e.getUnfinishedMessage();
+        parsedMessage = (grpc.caihts.doorcontrol.MultiDoorControlRequest) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
@@ -483,141 +460,134 @@ private static final long serialVersionUID = 0L;
       }
       return this;
     }
+    private int bitField0_;
 
-    private java.lang.Object text_ = "";
-    /**
-     * <code>string text = 1;</code>
-     */
-    public java.lang.String getText() {
-      java.lang.Object ref = text_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        text_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
+    private com.google.protobuf.LazyStringList text_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+    private void ensureTextIsMutable() {
+      if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+        text_ = new com.google.protobuf.LazyStringArrayList(text_);
+        bitField0_ |= 0x00000001;
+       }
     }
     /**
-     * <code>string text = 1;</code>
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTextList() {
+      return text_.getUnmodifiableView();
+    }
+    /**
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
+     */
+    public int getTextCount() {
+      return text_.size();
+    }
+    /**
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
+     */
+    public java.lang.String getText(int index) {
+      return text_.get(index);
+    }
+    /**
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
      */
     public com.google.protobuf.ByteString
-        getTextBytes() {
-      java.lang.Object ref = text_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        text_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+        getTextBytes(int index) {
+      return text_.getByteString(index);
     }
     /**
-     * <code>string text = 1;</code>
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
      */
     public Builder setText(
-        java.lang.String value) {
+        int index, java.lang.String value) {
       if (value == null) {
     throw new NullPointerException();
   }
-  
-      text_ = value;
+  ensureTextIsMutable();
+      text_.set(index, value);
       onChanged();
       return this;
     }
     /**
-     * <code>string text = 1;</code>
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
+     */
+    public Builder addText(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTextIsMutable();
+      text_.add(value);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
+     */
+    public Builder addAllText(
+        java.lang.Iterable<java.lang.String> values) {
+      ensureTextIsMutable();
+      com.google.protobuf.AbstractMessageLite.Builder.addAll(
+          values, text_);
+      onChanged();
+      return this;
+    }
+    /**
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
      */
     public Builder clearText() {
-      
-      text_ = getDefaultInstance().getText();
+      text_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      bitField0_ = (bitField0_ & ~0x00000001);
       onChanged();
       return this;
     }
     /**
-     * <code>string text = 1;</code>
+     * <pre>
+     * THIS IS THE MOST IMPORTANT PART FOR A BI DIRECTION STREAMING
+     * </pre>
+     *
+     * <code>repeated string text = 1;</code>
      */
-    public Builder setTextBytes(
+    public Builder addTextBytes(
         com.google.protobuf.ByteString value) {
       if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
-      
-      text_ = value;
-      onChanged();
-      return this;
-    }
-
-    private java.lang.Object char_ = "";
-    /**
-     * <code>string char = 2;</code>
-     */
-    public java.lang.String getChar() {
-      java.lang.Object ref = char_;
-      if (!(ref instanceof java.lang.String)) {
-        com.google.protobuf.ByteString bs =
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        char_ = s;
-        return s;
-      } else {
-        return (java.lang.String) ref;
-      }
-    }
-    /**
-     * <code>string char = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getCharBytes() {
-      java.lang.Object ref = char_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        char_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-    /**
-     * <code>string char = 2;</code>
-     */
-    public Builder setChar(
-        java.lang.String value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  
-      char_ = value;
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string char = 2;</code>
-     */
-    public Builder clearChar() {
-      
-      char_ = getDefaultInstance().getChar();
-      onChanged();
-      return this;
-    }
-    /**
-     * <code>string char = 2;</code>
-     */
-    public Builder setCharBytes(
-        com.google.protobuf.ByteString value) {
-      if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-      
-      char_ = value;
+      ensureTextIsMutable();
+      text_.add(value);
       onChanged();
       return this;
     }
@@ -634,41 +604,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:doorcontrol.ReplaceRequest)
+    // @@protoc_insertion_point(builder_scope:doorcontrol.MultiDoorControlRequest)
   }
 
-  // @@protoc_insertion_point(class_scope:doorcontrol.ReplaceRequest)
-  private static final grpc.caihts.doorcontrol.ReplaceRequest DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:doorcontrol.MultiDoorControlRequest)
+  private static final grpc.caihts.doorcontrol.MultiDoorControlRequest DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new grpc.caihts.doorcontrol.ReplaceRequest();
+    DEFAULT_INSTANCE = new grpc.caihts.doorcontrol.MultiDoorControlRequest();
   }
 
-  public static grpc.caihts.doorcontrol.ReplaceRequest getDefaultInstance() {
+  public static grpc.caihts.doorcontrol.MultiDoorControlRequest getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<ReplaceRequest>
-      PARSER = new com.google.protobuf.AbstractParser<ReplaceRequest>() {
+  private static final com.google.protobuf.Parser<MultiDoorControlRequest>
+      PARSER = new com.google.protobuf.AbstractParser<MultiDoorControlRequest>() {
     @java.lang.Override
-    public ReplaceRequest parsePartialFrom(
+    public MultiDoorControlRequest parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new ReplaceRequest(input, extensionRegistry);
+      return new MultiDoorControlRequest(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<ReplaceRequest> parser() {
+  public static com.google.protobuf.Parser<MultiDoorControlRequest> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<ReplaceRequest> getParserForType() {
+  public com.google.protobuf.Parser<MultiDoorControlRequest> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public grpc.caihts.doorcontrol.ReplaceRequest getDefaultInstanceForType() {
+  public grpc.caihts.doorcontrol.MultiDoorControlRequest getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 

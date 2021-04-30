@@ -5,21 +5,22 @@ package grpc.caihts.doorcontrol;
 
 /**
  * <pre>
- *When there is no value being passed by the client
+ *String responses will be sent back as a String value
  * </pre>
  *
- * Protobuf type {@code doorcontrol.Empty}
+ * Protobuf type {@code doorcontrol.DoorControlResponse}
  */
-public  final class Empty extends
+public  final class DoorControlResponse extends
     com.google.protobuf.GeneratedMessageV3 implements
-    // @@protoc_insertion_point(message_implements:doorcontrol.Empty)
-    EmptyOrBuilder {
+    // @@protoc_insertion_point(message_implements:doorcontrol.DoorControlResponse)
+    DoorControlResponseOrBuilder {
 private static final long serialVersionUID = 0L;
-  // Use Empty.newBuilder() to construct.
-  private Empty(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+  // Use DoorControlResponse.newBuilder() to construct.
+  private DoorControlResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
     super(builder);
   }
-  private Empty() {
+  private DoorControlResponse() {
+    val_ = "";
   }
 
   @java.lang.Override
@@ -27,7 +28,7 @@ private static final long serialVersionUID = 0L;
   getUnknownFields() {
     return this.unknownFields;
   }
-  private Empty(
+  private DoorControlResponse(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
@@ -35,6 +36,7 @@ private static final long serialVersionUID = 0L;
     if (extensionRegistry == null) {
       throw new java.lang.NullPointerException();
     }
+    int mutable_bitField0_ = 0;
     com.google.protobuf.UnknownFieldSet.Builder unknownFields =
         com.google.protobuf.UnknownFieldSet.newBuilder();
     try {
@@ -45,6 +47,12 @@ private static final long serialVersionUID = 0L;
           case 0:
             done = true;
             break;
+          case 10: {
+            java.lang.String s = input.readStringRequireUtf8();
+
+            val_ = s;
+            break;
+          }
           default: {
             if (!parseUnknownFieldProto3(
                 input, unknownFields, extensionRegistry, tag)) {
@@ -66,15 +74,49 @@ private static final long serialVersionUID = 0L;
   }
   public static final com.google.protobuf.Descriptors.Descriptor
       getDescriptor() {
-    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_Empty_descriptor;
+    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_DoorControlResponse_descriptor;
   }
 
   @java.lang.Override
   protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internalGetFieldAccessorTable() {
-    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_Empty_fieldAccessorTable
+    return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_DoorControlResponse_fieldAccessorTable
         .ensureFieldAccessorsInitialized(
-            grpc.caihts.doorcontrol.Empty.class, grpc.caihts.doorcontrol.Empty.Builder.class);
+            grpc.caihts.doorcontrol.DoorControlResponse.class, grpc.caihts.doorcontrol.DoorControlResponse.Builder.class);
+  }
+
+  public static final int VAL_FIELD_NUMBER = 1;
+  private volatile java.lang.Object val_;
+  /**
+   * <code>string val = 1;</code>
+   */
+  public java.lang.String getVal() {
+    java.lang.Object ref = val_;
+    if (ref instanceof java.lang.String) {
+      return (java.lang.String) ref;
+    } else {
+      com.google.protobuf.ByteString bs = 
+          (com.google.protobuf.ByteString) ref;
+      java.lang.String s = bs.toStringUtf8();
+      val_ = s;
+      return s;
+    }
+  }
+  /**
+   * <code>string val = 1;</code>
+   */
+  public com.google.protobuf.ByteString
+      getValBytes() {
+    java.lang.Object ref = val_;
+    if (ref instanceof java.lang.String) {
+      com.google.protobuf.ByteString b = 
+          com.google.protobuf.ByteString.copyFromUtf8(
+              (java.lang.String) ref);
+      val_ = b;
+      return b;
+    } else {
+      return (com.google.protobuf.ByteString) ref;
+    }
   }
 
   private byte memoizedIsInitialized = -1;
@@ -91,6 +133,9 @@ private static final long serialVersionUID = 0L;
   @java.lang.Override
   public void writeTo(com.google.protobuf.CodedOutputStream output)
                       throws java.io.IOException {
+    if (!getValBytes().isEmpty()) {
+      com.google.protobuf.GeneratedMessageV3.writeString(output, 1, val_);
+    }
     unknownFields.writeTo(output);
   }
 
@@ -100,6 +145,9 @@ private static final long serialVersionUID = 0L;
     if (size != -1) return size;
 
     size = 0;
+    if (!getValBytes().isEmpty()) {
+      size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, val_);
+    }
     size += unknownFields.getSerializedSize();
     memoizedSize = size;
     return size;
@@ -110,12 +158,14 @@ private static final long serialVersionUID = 0L;
     if (obj == this) {
      return true;
     }
-    if (!(obj instanceof grpc.caihts.doorcontrol.Empty)) {
+    if (!(obj instanceof grpc.caihts.doorcontrol.DoorControlResponse)) {
       return super.equals(obj);
     }
-    grpc.caihts.doorcontrol.Empty other = (grpc.caihts.doorcontrol.Empty) obj;
+    grpc.caihts.doorcontrol.DoorControlResponse other = (grpc.caihts.doorcontrol.DoorControlResponse) obj;
 
     boolean result = true;
+    result = result && getVal()
+        .equals(other.getVal());
     result = result && unknownFields.equals(other.unknownFields);
     return result;
   }
@@ -127,74 +177,76 @@ private static final long serialVersionUID = 0L;
     }
     int hash = 41;
     hash = (19 * hash) + getDescriptor().hashCode();
+    hash = (37 * hash) + VAL_FIELD_NUMBER;
+    hash = (53 * hash) + getVal().hashCode();
     hash = (29 * hash) + unknownFields.hashCode();
     memoizedHashCode = hash;
     return hash;
   }
 
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       java.nio.ByteBuffer data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       java.nio.ByteBuffer data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       com.google.protobuf.ByteString data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       com.google.protobuf.ByteString data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(byte[] data)
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(byte[] data)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       byte[] data,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws com.google.protobuf.InvalidProtocolBufferException {
     return PARSER.parseFrom(data, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(java.io.InputStream input)
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.Empty parseDelimitedFrom(java.io.InputStream input)
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseDelimitedFrom(java.io.InputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input);
   }
-  public static grpc.caihts.doorcontrol.Empty parseDelimitedFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseDelimitedFrom(
       java.io.InputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       com.google.protobuf.CodedInputStream input)
       throws java.io.IOException {
     return com.google.protobuf.GeneratedMessageV3
         .parseWithIOException(PARSER, input);
   }
-  public static grpc.caihts.doorcontrol.Empty parseFrom(
+  public static grpc.caihts.doorcontrol.DoorControlResponse parseFrom(
       com.google.protobuf.CodedInputStream input,
       com.google.protobuf.ExtensionRegistryLite extensionRegistry)
       throws java.io.IOException {
@@ -207,7 +259,7 @@ private static final long serialVersionUID = 0L;
   public static Builder newBuilder() {
     return DEFAULT_INSTANCE.toBuilder();
   }
-  public static Builder newBuilder(grpc.caihts.doorcontrol.Empty prototype) {
+  public static Builder newBuilder(grpc.caihts.doorcontrol.DoorControlResponse prototype) {
     return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
   }
   @java.lang.Override
@@ -224,29 +276,29 @@ private static final long serialVersionUID = 0L;
   }
   /**
    * <pre>
-   *When there is no value being passed by the client
+   *String responses will be sent back as a String value
    * </pre>
    *
-   * Protobuf type {@code doorcontrol.Empty}
+   * Protobuf type {@code doorcontrol.DoorControlResponse}
    */
   public static final class Builder extends
       com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-      // @@protoc_insertion_point(builder_implements:doorcontrol.Empty)
-      grpc.caihts.doorcontrol.EmptyOrBuilder {
+      // @@protoc_insertion_point(builder_implements:doorcontrol.DoorControlResponse)
+      grpc.caihts.doorcontrol.DoorControlResponseOrBuilder {
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_Empty_descriptor;
+      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_DoorControlResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_Empty_fieldAccessorTable
+      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_DoorControlResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              grpc.caihts.doorcontrol.Empty.class, grpc.caihts.doorcontrol.Empty.Builder.class);
+              grpc.caihts.doorcontrol.DoorControlResponse.class, grpc.caihts.doorcontrol.DoorControlResponse.Builder.class);
     }
 
-    // Construct using grpc.caihts.doorcontrol.Empty.newBuilder()
+    // Construct using grpc.caihts.doorcontrol.DoorControlResponse.newBuilder()
     private Builder() {
       maybeForceBuilderInitialization();
     }
@@ -264,23 +316,25 @@ private static final long serialVersionUID = 0L;
     @java.lang.Override
     public Builder clear() {
       super.clear();
+      val_ = "";
+
       return this;
     }
 
     @java.lang.Override
     public com.google.protobuf.Descriptors.Descriptor
         getDescriptorForType() {
-      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_Empty_descriptor;
+      return grpc.caihts.doorcontrol.DoorControlServiceImpl.internal_static_doorcontrol_DoorControlResponse_descriptor;
     }
 
     @java.lang.Override
-    public grpc.caihts.doorcontrol.Empty getDefaultInstanceForType() {
-      return grpc.caihts.doorcontrol.Empty.getDefaultInstance();
+    public grpc.caihts.doorcontrol.DoorControlResponse getDefaultInstanceForType() {
+      return grpc.caihts.doorcontrol.DoorControlResponse.getDefaultInstance();
     }
 
     @java.lang.Override
-    public grpc.caihts.doorcontrol.Empty build() {
-      grpc.caihts.doorcontrol.Empty result = buildPartial();
+    public grpc.caihts.doorcontrol.DoorControlResponse build() {
+      grpc.caihts.doorcontrol.DoorControlResponse result = buildPartial();
       if (!result.isInitialized()) {
         throw newUninitializedMessageException(result);
       }
@@ -288,8 +342,9 @@ private static final long serialVersionUID = 0L;
     }
 
     @java.lang.Override
-    public grpc.caihts.doorcontrol.Empty buildPartial() {
-      grpc.caihts.doorcontrol.Empty result = new grpc.caihts.doorcontrol.Empty(this);
+    public grpc.caihts.doorcontrol.DoorControlResponse buildPartial() {
+      grpc.caihts.doorcontrol.DoorControlResponse result = new grpc.caihts.doorcontrol.DoorControlResponse(this);
+      result.val_ = val_;
       onBuilt();
       return result;
     }
@@ -328,16 +383,20 @@ private static final long serialVersionUID = 0L;
     }
     @java.lang.Override
     public Builder mergeFrom(com.google.protobuf.Message other) {
-      if (other instanceof grpc.caihts.doorcontrol.Empty) {
-        return mergeFrom((grpc.caihts.doorcontrol.Empty)other);
+      if (other instanceof grpc.caihts.doorcontrol.DoorControlResponse) {
+        return mergeFrom((grpc.caihts.doorcontrol.DoorControlResponse)other);
       } else {
         super.mergeFrom(other);
         return this;
       }
     }
 
-    public Builder mergeFrom(grpc.caihts.doorcontrol.Empty other) {
-      if (other == grpc.caihts.doorcontrol.Empty.getDefaultInstance()) return this;
+    public Builder mergeFrom(grpc.caihts.doorcontrol.DoorControlResponse other) {
+      if (other == grpc.caihts.doorcontrol.DoorControlResponse.getDefaultInstance()) return this;
+      if (!other.getVal().isEmpty()) {
+        val_ = other.val_;
+        onChanged();
+      }
       this.mergeUnknownFields(other.unknownFields);
       onChanged();
       return this;
@@ -353,17 +412,86 @@ private static final long serialVersionUID = 0L;
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
-      grpc.caihts.doorcontrol.Empty parsedMessage = null;
+      grpc.caihts.doorcontrol.DoorControlResponse parsedMessage = null;
       try {
         parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        parsedMessage = (grpc.caihts.doorcontrol.Empty) e.getUnfinishedMessage();
+        parsedMessage = (grpc.caihts.doorcontrol.DoorControlResponse) e.getUnfinishedMessage();
         throw e.unwrapIOException();
       } finally {
         if (parsedMessage != null) {
           mergeFrom(parsedMessage);
         }
       }
+      return this;
+    }
+
+    private java.lang.Object val_ = "";
+    /**
+     * <code>string val = 1;</code>
+     */
+    public java.lang.String getVal() {
+      java.lang.Object ref = val_;
+      if (!(ref instanceof java.lang.String)) {
+        com.google.protobuf.ByteString bs =
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        val_ = s;
+        return s;
+      } else {
+        return (java.lang.String) ref;
+      }
+    }
+    /**
+     * <code>string val = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getValBytes() {
+      java.lang.Object ref = val_;
+      if (ref instanceof String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        val_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+    /**
+     * <code>string val = 1;</code>
+     */
+    public Builder setVal(
+        java.lang.String value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  
+      val_ = value;
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string val = 1;</code>
+     */
+    public Builder clearVal() {
+      
+      val_ = getDefaultInstance().getVal();
+      onChanged();
+      return this;
+    }
+    /**
+     * <code>string val = 1;</code>
+     */
+    public Builder setValBytes(
+        com.google.protobuf.ByteString value) {
+      if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+      
+      val_ = value;
+      onChanged();
       return this;
     }
     @java.lang.Override
@@ -379,41 +507,41 @@ private static final long serialVersionUID = 0L;
     }
 
 
-    // @@protoc_insertion_point(builder_scope:doorcontrol.Empty)
+    // @@protoc_insertion_point(builder_scope:doorcontrol.DoorControlResponse)
   }
 
-  // @@protoc_insertion_point(class_scope:doorcontrol.Empty)
-  private static final grpc.caihts.doorcontrol.Empty DEFAULT_INSTANCE;
+  // @@protoc_insertion_point(class_scope:doorcontrol.DoorControlResponse)
+  private static final grpc.caihts.doorcontrol.DoorControlResponse DEFAULT_INSTANCE;
   static {
-    DEFAULT_INSTANCE = new grpc.caihts.doorcontrol.Empty();
+    DEFAULT_INSTANCE = new grpc.caihts.doorcontrol.DoorControlResponse();
   }
 
-  public static grpc.caihts.doorcontrol.Empty getDefaultInstance() {
+  public static grpc.caihts.doorcontrol.DoorControlResponse getDefaultInstance() {
     return DEFAULT_INSTANCE;
   }
 
-  private static final com.google.protobuf.Parser<Empty>
-      PARSER = new com.google.protobuf.AbstractParser<Empty>() {
+  private static final com.google.protobuf.Parser<DoorControlResponse>
+      PARSER = new com.google.protobuf.AbstractParser<DoorControlResponse>() {
     @java.lang.Override
-    public Empty parsePartialFrom(
+    public DoorControlResponse parsePartialFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
-      return new Empty(input, extensionRegistry);
+      return new DoorControlResponse(input, extensionRegistry);
     }
   };
 
-  public static com.google.protobuf.Parser<Empty> parser() {
+  public static com.google.protobuf.Parser<DoorControlResponse> parser() {
     return PARSER;
   }
 
   @java.lang.Override
-  public com.google.protobuf.Parser<Empty> getParserForType() {
+  public com.google.protobuf.Parser<DoorControlResponse> getParserForType() {
     return PARSER;
   }
 
   @java.lang.Override
-  public grpc.caihts.doorcontrol.Empty getDefaultInstanceForType() {
+  public grpc.caihts.doorcontrol.DoorControlResponse getDefaultInstanceForType() {
     return DEFAULT_INSTANCE;
   }
 
