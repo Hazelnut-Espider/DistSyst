@@ -45,19 +45,18 @@ public class ExampleServiceDiscovery {
 	public static void main(String[] args) throws InterruptedException {
 		try {
 			
-			// Create a JmDNS instance
-			JmDNS jmdns = JmDNS.create(InetAddress.getLocalHost());
+			// ---------------- This is a JmDNS instance ----------------\\
+			JmDNS netAddress = JmDNS.create(InetAddress.getLocalHost());
 			System.out.println("Client: InetAddress.getLocalHost():" + InetAddress.getLocalHost());
-			// Add a service listener
-			jmdns.addServiceListener("_http._tcp.local.", new SampleListener());
+			netAddress.addServiceListener("_http._tcp.local.", new SampleListener());
 
-			// Wait a bit
-            Thread.sleep(20000);
+			// Wait until get the feedback
+            Thread.sleep(4000);
 			
 		} catch (UnknownHostException e) {
 			System.out.println(e.getMessage());
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
 		}
-	}
+	} // @Elder Costa Cavalcanti x20110944 (Intelligent Home Tech Service CA) Dist. System
 }

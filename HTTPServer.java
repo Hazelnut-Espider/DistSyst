@@ -8,24 +8,24 @@ import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
 
-// http://stackoverflow.com/questions/3732109/simple-http-server-in-java-using-only-java-se-api
+
 public class HTTPServer {
 
     public static void main(String[] args) throws Exception {
     	
         HttpServer server = HttpServer.create(new InetSocketAddress(8000), 0);
         
-        server.createContext("/index.html", new MyHandler());
+        server.createContext("/index.html", new MyNet());
         server.setExecutor(null); // creates a default executor
         server.start();
     }
 
-    static class MyHandler implements HttpHandler {
+    static class MyNet implements HttpHandler {
     	
        
         public void handle(HttpExchange t) throws IOException {
             
-        	String response = "This is the response";
+        	String response = "Smart Home response! ";
             t.sendResponseHeaders(200, response.length());
             OutputStream os = t.getResponseBody();
             os.write(response.getBytes());
@@ -33,5 +33,5 @@ public class HTTPServer {
             
         }
     }
-
+	// @Elder Costa Cavalcanti x20110944 (Intelligent Home Tech Service CA) Dist. System
 }
